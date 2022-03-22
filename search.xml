@@ -4,6 +4,32 @@
   
     
     <entry>
+      <title>pico-guixingdong</title>
+      <link href="/2022/03/22/pico-guixingdong/"/>
+      <url>/2022/03/22/pico-guixingdong/</url>
+      
+        <content type="html"><![CDATA[<p>Welcome to 夜的第七章</p><h2 id="picoctf-鬼行动"><a href="#picoctf-鬼行动" class="headerlink" title="picoctf 鬼行动"></a>picoctf 鬼行动</h2><p>题目提示 ssh -i key_file -p 53605 <a href="mailto:ctf-player@saturn.picoctf.net">ctf-player@saturn.picoctf.net</a><br>也就是说 只需要得到key_file<br>做提前需链接ssh协议的使用 可以尝试用git链接github玩玩。</p><h3 id="起步"><a href="#起步" class="headerlink" title="起步"></a>起步</h3><p>下载后的img放进AccessData FTK Imager进行挂载分析<br>在p2中找到可疑的root中的.ssh<br>发现了经过ed25519算法加密后的公钥和私钥</p><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -i ed25519 -p 53605 ctf-player@saturn.picoctf.net</span><br></pre></td></tr></tbody></table></figure><h3 id="openssl加解密部分"><a href="#openssl加解密部分" class="headerlink" title="openssl加解密部分"></a>openssl加解密部分</h3><p>私钥即为</p><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">$ </span><br><span class="line">geqian@ MINGW64 ~</span><br><span class="line">$ <span class="built_in">cd</span> /c/Users/26334/Desktop/.ssh</span><br><span class="line"></span><br><span class="line">geqian@ MINGW64 ~/Desktop/.ssh</span><br><span class="line">$ ssh -i /c/Users/26334/Desktop/.ssh/id_ed25519 -p 55070 ctf-player@saturn.picoctf.net</span><br><span class="line">...................</span><br><span class="line">ctf-player@challenge:~$ <span class="built_in">ls</span></span><br><span class="line">flag.txt</span><br><span class="line">ctf-player@challenge:~$ <span class="built_in">cat</span> flag.txt</span><br><span class="line">picoCTF{k3y_5l3u7h_75b85d71}ctf-player@challenge:~$</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure><h3 id="得到flag-txt"><a href="#得到flag-txt" class="headerlink" title="得到flag.txt"></a>得到flag.txt</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">picoCTF{k3y_5l3u7h_75b85d71}</span><br></pre></td></tr></tbody></table></figure>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>cipanlanghua</title>
+      <link href="/2022/03/22/cipanlanghua/"/>
+      <url>/2022/03/22/cipanlanghua/</url>
+      
+        <content type="html"><![CDATA[<p>Welcome to 兰亭集序</p><h2 id="picoctf-兰花行动-准备阶段"><a href="#picoctf-兰花行动-准备阶段" class="headerlink" title="picoctf 兰花行动 准备阶段"></a>picoctf 兰花行动 准备阶段</h2><p>下载img磁盘，发现需要磁盘分析，挂载进AccessData FTK Imager。发现在Partithon3中root文件夹中还有个root，打开分析。</p><h3 id="root内文件"><a href="#root内文件" class="headerlink" title="root内文件"></a>root内文件</h3><p>有一个flag.txt.enc文件和使用记录</p><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">touch</span> flag.txt</span><br><span class="line">nano flag.txt </span><br><span class="line">apk get nano</span><br><span class="line">apk --<span class="built_in">help</span></span><br><span class="line">apk add nano</span><br><span class="line">nano flag.txt </span><br><span class="line">openssl</span><br><span class="line">openssl aes256 -salt -<span class="keyword">in</span> flag.txt -out flag.txt.enc -k unbreakablepassword1234567</span><br><span class="line"><span class="built_in">shred</span> -u flag.txt</span><br><span class="line"><span class="built_in">ls</span> -al</span><br><span class="line">halt</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure><h3 id="openssl加解密部分"><a href="#openssl加解密部分" class="headerlink" title="openssl加解密部分"></a>openssl加解密部分</h3><p>发现命令 openssl aes256 -salt -in flag.txt -out flag.txt.enc -k unbreakablepassword1234567<br>导出falg.txt.enc包 ，进入kali反解。</p><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ openssl aes256 -d -salt -<span class="keyword">in</span> flag.txt.enc -out flag.txt -k unbreakablepassword1234567</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure><h3 id="得到flag-txt"><a href="#得到flag-txt" class="headerlink" title="得到flag.txt"></a>得到flag.txt</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">picoCTF{h4un71ng_p457_1d02081e}</span><br></pre></td></tr></tbody></table></figure>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>pico pdf</title>
       <link href="/2022/03/22/pico-pdf/"/>
       <url>/2022/03/22/pico-pdf/</url>

@@ -14,7 +14,7 @@ color="122 103 238" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="pico pdf, 搁浅">
+    <meta name="keywords" content="cipanlanghua, 搁浅">
     <meta name="description" content="CTF">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -26,7 +26,7 @@ color="122 103 238" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>pico pdf | 搁浅</title>
+    <title>cipanlanghua | 搁浅</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -300,12 +300,12 @@ color="122 103 238" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">pico pdf</h1>
+                    <h1 class="description center-align post-title">cipanlanghua</h1>
                 </div>
             </div>
         </div>
@@ -454,16 +454,18 @@ color="122 103 238" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Welcome to 半岛铁盒</p>
-<h2 id="picoctf-Flag-pdf"><a href="#picoctf-Flag-pdf" class="headerlink" title="picoctf Flag-pdf"></a>picoctf Flag-pdf</h2><p>请记住，某些文件类型可以包含和嵌套其他文件<br>分析pdf发现存在shell脚本，使用file命令结合sh命令发现有ar包 解压ar包发现有cpio</p>
-<h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">$ ┌──(feng02㉿kali)-[~]</span><br><span class="line">└─$ file file.            </span><br><span class="line">file.: cannot open `file.<span class="string">' (No such file or directory)</span></span><br><span class="line"><span class="string">                                                                           </span></span><br><span class="line"><span class="string">┌──(feng02㉿kali)-[~]</span></span><br><span class="line"><span class="string">└─$ file Flag.pdf</span></span><br><span class="line"><span class="string">Flag.pdf: cannot open `Flag.pdf'</span> (No such file or directory)</span><br><span class="line">                                                                           </span><br><span class="line">┌──(feng02㉿kali)-[~]</span><br><span class="line">└─$ file /home/feng02/桌面/Flag.pdf       </span><br><span class="line">/home/feng02/桌面/Flag.pdf: shell archive text</span><br><span class="line">                                                                           </span><br><span class="line">┌──(feng02㉿kali)-[~]</span><br><span class="line">└─$ sh /home/feng02/桌面/Flag.pdf       </span><br><span class="line">x - created lock directory _sh00046.</span><br><span class="line">x - extracting flag (text)</span><br><span class="line">x - removed lock directory _sh00046.</span><br><span class="line">                                                                           </span><br><span class="line">┌──(feng02㉿kali)-[~]</span><br><span class="line">└─$ file flag                      </span><br><span class="line">flag: current ar archive</span><br><span class="line">                                                                           </span><br><span class="line">┌──(feng02㉿kali)-[~]</span><br><span class="line">└─$ ar x flag</span><br><span class="line">                                                                           </span><br><span class="line">┌──(feng02㉿kali)-[~]</span><br><span class="line">└─$ file flag</span><br><span class="line">flag: cpio archive</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+                <p>Welcome to 兰亭集序</p>
+<h2 id="picoctf-兰花行动-准备阶段"><a href="#picoctf-兰花行动-准备阶段" class="headerlink" title="picoctf 兰花行动 准备阶段"></a>picoctf 兰花行动 准备阶段</h2><p>下载img磁盘，发现需要磁盘分析，挂载进AccessData FTK Imager。发现在Partithon3中root文件夹中还有个root，打开分析。</p>
+<h3 id="root内文件"><a href="#root内文件" class="headerlink" title="root内文件"></a>root内文件</h3><p>有一个flag.txt.enc文件和使用记录</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">touch</span> flag.txt</span><br><span class="line">nano flag.txt </span><br><span class="line">apk get nano</span><br><span class="line">apk --<span class="built_in">help</span></span><br><span class="line">apk add nano</span><br><span class="line">nano flag.txt </span><br><span class="line">openssl</span><br><span class="line">openssl aes256 -salt -<span class="keyword">in</span> flag.txt -out flag.txt.enc -k unbreakablepassword1234567</span><br><span class="line"><span class="built_in">shred</span> -u flag.txt</span><br><span class="line"><span class="built_in">ls</span> -al</span><br><span class="line">halt</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
 
 
-<h3 id="发现有cipo包"><a href="#发现有cipo包" class="headerlink" title="发现有cipo包"></a>发现有cipo包</h3><p>cpio需要在文件名后缀加上.cpio否则无法识别<br>之后使用cpio -i &lt; flag.cpio<br>解压后发现bzip<br>bzip命令可以用 -d解压 -k保存原来的压缩包  重复……</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">$ ──(feng02㉿kali)-[~/桌面]</span><br><span class="line">└─$ file flag</span><br><span class="line">flag: lzop compressed data - version 1.040, LZO1X-1, os: Unix</span><br><span class="line">                                                                           </span><br><span class="line">┌──(feng02㉿kali)-[~/桌面]</span><br><span class="line">└─$ lzop -d flag     </span><br><span class="line">lzop: flag: unknown suffix -- ignored</span><br><span class="line">skipping flag [flag.raw]</span><br><span class="line">                                                                           </span><br><span class="line">┌──(feng02㉿kali)-[~/桌面]</span><br><span class="line">└─$ lzop -d flag.lzop                                                  1 ⨯</span><br><span class="line">                                                                           </span><br><span class="line">┌──(feng02㉿kali)-[~/桌面]</span><br><span class="line">└─$ file flag</span><br><span class="line">flag: lzip compressed data, version: 1</span><br><span class="line">                                                                           </span><br><span class="line">┌──(feng02㉿kali)-[~/桌面]</span><br><span class="line">└─$ lzip -d flag     </span><br><span class="line">                                                                           </span><br><span class="line">┌──(feng02㉿kali)-[~/桌面]</span><br><span class="line">└─$ file flag.out</span><br><span class="line">flag.out: XZ compressed data, checksum CRC64</span><br><span class="line">                                                                           </span><br><span class="line">┌──(feng02㉿kali)-[~/桌面]</span><br><span class="line">└─$ xz -d flag.out</span><br><span class="line">xz：flag.out：文件名有未知后缀，跳过</span><br><span class="line">                                                                           </span><br><span class="line">┌──(feng02㉿kali)-[~/桌面]</span><br><span class="line">└─$ xz -d flag.xz                                                      2 ⨯</span><br><span class="line">                                                                           </span><br><span class="line">┌──(feng02㉿kali)-[~/桌面]</span><br><span class="line">└─$ file flag    </span><br><span class="line">flag: ASCII text</span><br><span class="line">                                                                           </span><br><span class="line">┌──(feng02㉿kali)-[~/桌面]</span><br><span class="line">└─$ <span class="built_in">cat</span> flag </span><br><span class="line">7069636f4354467b66316c656e406d335f6d406e3170756c407431306e5f</span><br><span class="line">6630725f3062326375723137795f39353063346665657d0a</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-<p>大概十多个包后可以得到ascii text</p>
-<h3 id="转码"><a href="#转码" class="headerlink" title="转码"></a>转码</h3><p>cat flag之后很明显得到一串16进制码  转字符就可以得到flag</p>
-<h3 id="Flag"><a href="#Flag" class="headerlink" title="Flag"></a>Flag</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">picoCTF{f1len@m3_m@n1pul@t10n_f0r_0b2cur17y_950c4fee}</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="openssl加解密部分"><a href="#openssl加解密部分" class="headerlink" title="openssl加解密部分"></a>openssl加解密部分</h3><p>发现命令 openssl aes256 -salt -in flag.txt -out flag.txt.enc -k unbreakablepassword1234567<br>导出falg.txt.enc包 ，进入kali反解。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ openssl aes256 -d -salt -<span class="keyword">in</span> flag.txt.enc -out flag.txt -k unbreakablepassword1234567</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+
+<h3 id="得到flag-txt"><a href="#得到flag-txt" class="headerlink" title="得到flag.txt"></a>得到flag.txt</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">picoCTF{h4un71ng_p457_1d02081e}</span><br></pre></td></tr></tbody></table></figure>
+
 
 
 
@@ -493,7 +495,7 @@ color="122 103 238" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://bdth1020.github.io/2022/03/22/pico-pdf/">http://bdth1020.github.io/2022/03/22/pico-pdf/</a>
+                    <a href="http://bdth1020.github.io/2022/03/22/cipanlanghua/">http://bdth1020.github.io/2022/03/22/cipanlanghua/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -699,7 +701,7 @@ color="122 103 238" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
         repo: '',
         owner: '',
         admin: null,
-        id: '2022-03-22T14-39-15',
+        id: '2022-03-22T15-23-06',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -723,7 +725,7 @@ color="122 103 238" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
 <script src="/libs/gitment/gitment.js"></script>
 <script>
 var gitment = new Gitment({
-    id: 'Tue Mar 22 2022 14:39:15 GMT+0800',
+    id: 'Tue Mar 22 2022 15:23:06 GMT+0800',
     owner: '',
     repo: '',
     oauth: {
@@ -748,9 +750,9 @@ gitment.render('gitment-content');
 
 <script type="text/javascript">
     disqus_config = function () {
-        this.page.url = 'http://bdth1020.github.io/2022/03/22/pico-pdf/';
-        this.page.identifier = '/2022/03/22/pico-pdf/';
-        this.page.title = 'pico pdf';
+        this.page.url = 'http://bdth1020.github.io/2022/03/22/cipanlanghua/';
+        this.page.identifier = '/2022/03/22/cipanlanghua/';
+        this.page.title = 'cipanlanghua';
     };
     let disqus_shortname = '';
 
@@ -1113,13 +1115,13 @@ gitment.render('gitment-content');
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/03/22/cipanlanghua/">
+                <a href="/2022/03/22/pico-guixingdong/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="cipanlanghua">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="pico-guixingdong">
                         
-                        <span class="card-title">cipanlanghua</span>
+                        <span class="card-title">pico-guixingdong</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1150,13 +1152,13 @@ gitment.render('gitment-content');
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/03/22/article-title/">
+                <a href="/2022/03/22/pico-pdf/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="测信道攻击">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="pico pdf">
                         
-                        <span class="card-title">测信道攻击</span>
+                        <span class="card-title">pico pdf</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
