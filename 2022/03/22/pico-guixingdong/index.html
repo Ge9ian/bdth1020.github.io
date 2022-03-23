@@ -452,14 +452,14 @@ color="122 103 238" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-03-22
+                    2022-03-23
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    166
+                    244
                 </div>
                 
 
@@ -487,12 +487,18 @@ color="122 103 238" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p>Welcome to 夜的第七章</p>
-<h2 id="picoctf-鬼行动"><a href="#picoctf-鬼行动" class="headerlink" title="picoctf 鬼行动"></a>picoctf 鬼行动</h2><p>题目提示 ssh -i key_file -p 53605 <a href="mailto:ctf-player@saturn.picoctf.net">ctf-player@saturn.picoctf.net</a><br>也就是说 只需要得到key_file<br>做提前需链接ssh协议的使用 可以尝试用git链接github玩玩。</p>
-<h3 id="起步"><a href="#起步" class="headerlink" title="起步"></a>起步</h3><p>下载后的img放进AccessData FTK Imager进行挂载分析<br>在p2中找到可疑的root中的.ssh<br>发现了经过ed25519算法加密后的公钥和私钥</p>
+<h2 id="picoctf-鬼行动原题"><a href="#picoctf-鬼行动原题" class="headerlink" title="picoctf 鬼行动原题"></a>picoctf 鬼行动原题</h2><p>Download this disk image, find the key and log into the remote machine. Note: if you are using the webshell, download and extract the disk image into /tmp not your home directory.</p>
+<h2 id="分析题目"><a href="#分析题目" class="headerlink" title="分析题目"></a>分析题目</h2><p>题目提示 ssh -i key_file -p 53605 <a href="mailto:ctf-player@saturn.picoctf.net">ctf-player@saturn.picoctf.net</a></p>
+<p>也就是说 只需要得到key_file 即可</p>
+<p>做题前需了解ssh协议的使用 可以尝试用git链接github玩玩。</p>
+<h3 id="挂载"><a href="#挂载" class="headerlink" title="挂载"></a>挂载</h3><p>下载后的img放进AccessData FTK Imager进行挂载分析</p>
+<p>在p2中找到可疑的root中的.ssh</p>
+<p>发现了经过ed25519算法加密后的公钥和私钥</p>
+<p>模板如下：（用私钥连接即可）</p>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -i ed25519 -p 53605 ctf-player@saturn.picoctf.net</span><br></pre></td></tr></tbody></table></figure>
 
 
-<h3 id="openssl加解密部分"><a href="#openssl加解密部分" class="headerlink" title="openssl加解密部分"></a>openssl加解密部分</h3><p>私钥即为</p>
+<h3 id="openssl加解密部分"><a href="#openssl加解密部分" class="headerlink" title="openssl加解密部分"></a>openssl加解密部分</h3><p>进入到ssh层文件夹，连接到pico指定的服务器，得到权限后ls，cat文件即可。</p>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">$ </span><br><span class="line">geqian@ MINGW64 ~</span><br><span class="line">$ <span class="built_in">cd</span> /c/Users/26334/Desktop/.ssh</span><br><span class="line"></span><br><span class="line">geqian@ MINGW64 ~/Desktop/.ssh</span><br><span class="line">$ ssh -i /c/Users/26334/Desktop/.ssh/id_ed25519 -p 55070 ctf-player@saturn.picoctf.net</span><br><span class="line">...................</span><br><span class="line">ctf-player@challenge:~$ <span class="built_in">ls</span></span><br><span class="line">flag.txt</span><br><span class="line">ctf-player@challenge:~$ <span class="built_in">cat</span> flag.txt</span><br><span class="line">picoCTF{k3y_5l3u7h_75b85d71}ctf-player@challenge:~$</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
 
 
@@ -1413,7 +1419,7 @@ gitment.render('gitment-content');
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">4k</span>&nbsp;字
+                class="white-color">4.3k</span>&nbsp;字
             
             
             

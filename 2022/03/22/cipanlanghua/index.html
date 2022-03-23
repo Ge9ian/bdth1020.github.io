@@ -452,14 +452,14 @@ color="122 103 238" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-03-22
+                    2022-03-23
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    147
+                    176
                 </div>
                 
 
@@ -487,6 +487,7 @@ color="122 103 238" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p>Welcome to 兰亭集序</p>
+<h2 id="原题"><a href="#原题" class="headerlink" title="原题"></a>原题</h2><p>Download this disk image and find the flag. Note: if you are using the webshell, download and extract the disk image into /tmp not your home directory.</p>
 <h2 id="picoctf-兰花行动-准备阶段"><a href="#picoctf-兰花行动-准备阶段" class="headerlink" title="picoctf 兰花行动 准备阶段"></a>picoctf 兰花行动 准备阶段</h2><p>下载img磁盘，发现需要磁盘分析，挂载进AccessData FTK Imager。发现在Partithon3中root文件夹中还有个root，打开分析。</p>
 <h3 id="root内文件"><a href="#root内文件" class="headerlink" title="root内文件"></a>root内文件</h3><p>有一个flag.txt.enc文件和使用记录</p>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">touch</span> flag.txt</span><br><span class="line">nano flag.txt </span><br><span class="line">apk get nano</span><br><span class="line">apk --<span class="built_in">help</span></span><br><span class="line">apk add nano</span><br><span class="line">nano flag.txt </span><br><span class="line">openssl</span><br><span class="line">openssl aes256 -salt -<span class="keyword">in</span> flag.txt -out flag.txt.enc -k unbreakablepassword1234567</span><br><span class="line"><span class="built_in">shred</span> -u flag.txt</span><br><span class="line"><span class="built_in">ls</span> -al</span><br><span class="line">halt</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
@@ -1410,7 +1411,7 @@ gitment.render('gitment-content');
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">4k</span>&nbsp;字
+                class="white-color">4.3k</span>&nbsp;字
             
             
             

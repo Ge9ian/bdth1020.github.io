@@ -14,7 +14,7 @@ color="122 103 238" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="pico洪流分析, 搁浅">
+    <meta name="keywords" content="P2P通信协议, 搁浅">
     <meta name="description" content="CTF">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -37,7 +37,7 @@ color="122 103 238" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
 </script>
 
 
-    <title>pico洪流分析 | 搁浅</title>
+    <title>P2P通信协议 | 搁浅</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -312,12 +312,12 @@ color="122 103 238" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">pico洪流分析</h1>
+                    <h1 class="description center-align post-title">P2P通信协议</h1>
                 </div>
             </div>
         </div>
@@ -452,21 +452,21 @@ color="122 103 238" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-03-22
+                    2022-03-23
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.4k
+                    2.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    8 分
+                    9 分
                 </div>
                 
 
@@ -487,7 +487,8 @@ color="122 103 238" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p>Welcome to 枫</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><p>要理解下面的内容之前，首先要知道什么是 BitTorrent</p>
+<h2 id="pico洪流分析"><a href="#pico洪流分析" class="headerlink" title="pico洪流分析"></a>pico洪流分析</h2><p>SOS, someone is torrenting on our network. One of your colleagues has been using torrent to download some files on the company’s network. Can you identify the file(s) that were downloaded? The file name will be the flag, like picoCTF{filename}. Captured traffic.</p>
+<h2 id="BitTorrent协议"><a href="#BitTorrent协议" class="headerlink" title="BitTorrent协议"></a>BitTorrent协议</h2><p>要理解下面的内容之前，首先要知道什么是 BitTorrent</p>
 <p>BitTorrent 是一种点对点（P2P, Peers to Peers）的通信协议，用于在互联网上分发大量的数据和电子文件，包括但不限于数字视频文件或者歌曲文件。</p>
 <p>而点对点（P2P, Peers to Peers）网络是指仅两台或多台 PC 连接并共享资源而无需通过单独的服务器的用户网络。</p>
 <p>BitTorrent 协议可用于减少分发大文件对服务器和网络的影响。BitTorrent 协议不是从单个源服务器下载文件，而是允许用户加入主机“群”（一群人下载和上传相同的文件），以同时从彼此下载和上传。</p>
@@ -518,9 +519,7 @@ color="122 103 238" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
 <p>根据 infohash 下载种子文件的 info 字段，注意到种子文件并不是必须的。<br>再根据 info 下载源文件，将每一个数据块进行校验，不一致则重新下载。<br>需要注意的是，一般的种子文件会包含 announce，也就是 tracker 服务器的地址，如果没有 tracker 服务器，文件中可能会包含 nodes，nodes 是存有种子信息的 peer 节点，这样的种子文件就是 trackerless torrent。如果有 nodes 客户端直接从 nodes 获取种子信息，而从 DHT 网络中下载下来的种子文件既没有 annouce 也没有 nodes，客户端只能通过 info 字段计算出 hashinfo，再从 bootstrap node 节点开始在 DHT 网络中寻找种子信息。</p>
 <h3 id="流量分析原题"><a href="#流量分析原题" class="headerlink" title="流量分析原题"></a>流量分析原题</h3><p>BT流量一般会出现几个包，一个是uTP，这个是传输数据的，一个是DHT，是一个网络包用来发各种请求的，请求包括ping、find_node，get_peers等等。get_peers的包里，会有一个数据叫info_hash的，它对应的值就是要找的种子btih值，也就是magnet:?xt=urn:btih:后面的那一堆东西，用迅雷，直接复制那一段值，会自动获取种子，找到ios后缀种子即可！<br>过滤代码如下：</p>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bt-dht.bencoded.string == <span class="string">"get_peers"</span> and ip.src == 192.168.73.132 and bt-dht</span><br></pre></td></tr></tbody></table></figure>
-
-
-
+<p>找到find_node对应的值后，进入迅雷软件寻找种子文件，经过尝试找到以.ios为后缀的名字为flag{filename}</p>
 <h3 id="出自"><a href="#出自" class="headerlink" title="出自"></a>出自</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ https://hasegawaazusa.github.io/</span><br></pre></td></tr></tbody></table></figure>
 
 
@@ -806,7 +805,7 @@ gitment.render('gitment-content');
     disqus_config = function () {
         this.page.url = 'http://bdth1020.github.io/2022/03/21/hello-world/';
         this.page.identifier = '/2022/03/21/hello-world/';
-        this.page.title = 'pico洪流分析';
+        this.page.title = 'P2P通信协议';
     };
     let disqus_shortname = '';
 
@@ -1210,9 +1209,9 @@ gitment.render('gitment-content');
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="pico洪流分析">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="P2P通信协议">
                         
-                        <span class="card-title">pico洪流分析</span>
+                        <span class="card-title">P2P通信协议</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1433,7 +1432,7 @@ gitment.render('gitment-content');
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">4k</span>&nbsp;字
+                class="white-color">4.3k</span>&nbsp;字
             
             
             
