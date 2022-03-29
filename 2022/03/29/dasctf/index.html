@@ -15,7 +15,7 @@ color="122 103 238" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="P2P通信协议, 搁浅">
+    <meta name="keywords" content="2022.3.29, 搁浅">
     <meta name="description" content="CTF">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -38,7 +38,7 @@ color="122 103 238" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
 </script>
 
 
-    <title>P2P通信协议 | 搁浅</title>
+    <title>2022.3.29 | 搁浅</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -313,12 +313,12 @@ color="122 103 238" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">P2P通信协议</h1>
+                    <h1 class="description center-align post-title">2022.3.29</h1>
                 </div>
             </div>
         </div>
@@ -446,28 +446,28 @@ color="122 103 238" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-03-21
+                    2022-03-29
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-03-23
+                    2022-03-29
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.5k
+                    608
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    9 分
+                    3 分
                 </div>
                 
 
@@ -487,41 +487,35 @@ color="122 103 238" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Welcome to 枫</p>
-<h2 id="pico洪流分析"><a href="#pico洪流分析" class="headerlink" title="pico洪流分析"></a>pico洪流分析</h2><p>SOS, someone is torrenting on our network. One of your colleagues has been using torrent to download some files on the company’s network. Can you identify the file(s) that were downloaded? The file name will be the flag, like picoCTF{filename}. Captured traffic.</p>
-<h2 id="BitTorrent协议"><a href="#BitTorrent协议" class="headerlink" title="BitTorrent协议"></a>BitTorrent协议</h2><p>要理解下面的内容之前，首先要知道什么是 BitTorrent</p>
-<p>BitTorrent 是一种点对点（P2P, Peers to Peers）的通信协议，用于在互联网上分发大量的数据和电子文件，包括但不限于数字视频文件或者歌曲文件。</p>
-<p>而点对点（P2P, Peers to Peers）网络是指仅两台或多台 PC 连接并共享资源而无需通过单独的服务器的用户网络。</p>
-<p>BitTorrent 协议可用于减少分发大文件对服务器和网络的影响。BitTorrent 协议不是从单个源服务器下载文件，而是允许用户加入主机“群”（一群人下载和上传相同的文件），以同时从彼此下载和上传。</p>
-<p>使用 BitTorrent 协议，几台基本计算机（例如家用计算机）可以取代大型服务器，同时有效地将文件分发给许多收件人。这种较低的带宽使用量还有助于防止给定区域的互联网流量大幅飙升，从而为所有用户保持更高的互联网速度，无论他们是否使用 BitTorrent 协议。</p>
-<p>###种子文件与磁力链接<br>在很早的网络时代，下载都是简单的集中式客户端/服务器模式，一个或多个服务器支撑成千上万的客户端连接下载，不仅带宽遇到了瓶颈，而且太容易出现单点故障。这时 P2P 被提出来解决这个问题，通过分布式提高网络资源的利用率。但是 P2P 只是一个理念，真正将这个理念贯彻的还是 BitTorrent 协议。</p>
-<p>在 BitTorrent （简称 BT）中，所有的资源被切成很小的一份文件块（pieces），在这个基础上，BitTorrent 网络中的所有具有相同请求的用户可以相互传资源碎片，并且谁传得越多谁就能获得越多。</p>
-<p>而种子文件，就是拥有完整资源的人，根据 BitTorrent 协议，生成的一个包含 Tracker 信息和文件信息的文本文件。</p>
-<p>Tracker 信息主要是BT下载中需要用到的 Tracker 服务器的地址和针对 Tracker 服务器的设置，文件信息是根据对目标文件的计算生成的，计算结果根据 BitTorrent 协议内的 Bencode 规则进行编码。它的主要原理是需要把提供下载的文件虚拟分成大小相等的块，块大小必须为2k的整数次方（由于是虚拟分块，硬盘上并不产生各个块文件），并把每个块的索引信息和 Hash 验证码写入种子文件中；所以，种子文件就是被下载文件的索引。</p>
-<p>下载者要下载文件内容，需要先得到相应的种子文件，然后使用 BT 客户端软件进行下载。 下载时，BT 客户端首先解析种子文件得到 Tracker 地址，然后连接 Tracker 服务器。Tracker 服务器回应下载者的请求，提供下载者其他下载者（包括发布者）的 IP。</p>
-<p>下载者再连接其他下载者，根据种子文件，两者分别告知对方自己已经有的块，然后交换对方所没有的数据。此时不需要其他服务器参与，分散了单个线路上的数据流量，因此减轻了服务器负担。 下载者每得到一个块，需要算出下载块的 Hash 验证码与种子文件中的对比，如果一样则说明块正确，不一样则需要重新下载这个块。</p>
-<p>与此同时，当拥有完整文件的用户越多，种子的寿命也就越长。</p>
-<p>综上所述，可以看出 Tracker 服务器在BT网络中充当着非常重要的作用，和传统的客户端/服务器模式一样，Tracker 服务器同样会存在单点故障问题。所以在BT技术的基础上，后来又衍生出 DHT 网络和磁力链接技术，DHT 全称为分布式哈希表（Distributed Hash Table），是一种分布式存储方法。</p>
-<p>DHT 网络是 Tracker-less 的，不依赖于其他的 Tracker 服务器。在这种情况下，每个客户端负责一个小范围的路由，并负责存储一小部分数据，从而实现整个 DHT 网络的寻址和存储。使用支持该技术的BT下载软件，用户无需连上Tracker就可以下载，因为软件会在 DHT 网络中寻找下载同一文件的其他用户并与之通讯，开始下载任务。</p>
-<p>在网络中定位资源最简单的方法是URL（统一资源定位符），它是通过资源的位置来进行定位。而在DHT网络中，则是使用URN（统一资源名称）来进行定位，磁力链接就是基于文件内容的散列函数值来链接到特定文件，生成一个唯一的文件识别符，从而在DHT网络中定位并下载文件。</p>
-<p>磁力链接格式如下所示：</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ magnet:?xt=urn:btih:e2467cbf021192c241367b892230dc1e05c0580e</span><br></pre></td></tr></tbody></table></figure>
-<p>其中 urn 为统一资源名称，bith 是 BitTorrent Info Hash 的缩写，是 BitTorrent 使用的 Hash 函数。</p>
-<h3 id="KRPC-协议"><a href="#KRPC-协议" class="headerlink" title="KRPC 协议"></a>KRPC 协议</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ DHT 建立在 UDP 之上，想要获取需要的 Peers 信息，首先要了解下 Kademlia 的 KRPC 协议。 关于路由表和 Kademlia 的介绍，可以参照官方文档。我们这里的重点在于如何根据磁力链接获取拥有该磁力链接对应的种子文件信息的 Peers，所以只需要了解 KRPC 协议。 KRPC 协议是由 Bencoding 编码组成的一个简单的 RPC 结构，有4种请求：ping、find_node、get_peers 和 announce_peer。</span><br><span class="line"></span><br><span class="line">ping → 检测节点是否可达，请求包含一个参数 <span class="built_in">id</span>，代表该节点的 <span class="built_in">id</span>。对应的回复也应该包含回复者的<span class="built_in">id</span>。</span><br><span class="line">find_node → 该请求包含两个参数 <span class="built_in">id</span> 和 target，<span class="built_in">id</span> 为该节点的 <span class="built_in">id</span>，target 为要查询的 <span class="built_in">id</span>。回复中应该包含被请求节点的路由表中距离 target 最接近的 8 个 <span class="built_in">id</span>。</span><br><span class="line">get_peers → 该请求包含两个参数 <span class="built_in">id</span> 和 infohash，<span class="built_in">id</span> 为该节点的 <span class="built_in">id</span>，info_hash 为种子文件的SHA1哈希值，也就是磁力链接的 btih 值。如果被请求的节点有对应 info_hash 的 peers，他将返回一个关键字 values，这是一个列表类型的字符串。每一个字符串包含了 CompactIP-address/portinfo 格式的peers信息。如果被请求的节点没有这个 infohash 的 peers，那么他将返回关键字 nodes，这个关键字包含了被请求节点的路由表中离 info_hash 最近的 K 个 nodes，使用 Compactnodeinfo 格式回复。</span><br><span class="line">announce_peer → 如果节点正在下载 torrent 文件，则需要通知其他人你正在哪个端口进行下载，这样就可以分享给其他人，让其他人连接你进行下载。</span><br></pre></td></tr></tbody></table></figure>
+                <p>Welcome to 蒲公英的约定</p>
+<p>DASCTF SU三月赛</p>
+<h2 id="xxxxxx"><a href="#xxxxxx" class="headerlink" title="xxxxxx"></a>xxxxxx</h2><h2 id="加密dct隐写，解混淆后"><a href="#加密dct隐写，解混淆后" class="headerlink" title="加密dct隐写，解混淆后"></a>加密dct隐写，解混淆后</h2><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">$ import cv2,math</span><br><span class="line">import numpy as np</span><br><span class="line"></span><br><span class="line">org = cv2.imread(<span class="string">'xxxxxxx.bmp'</span>, 0)</span><br><span class="line">flag = cv2.imread(<span class="string">'xxxxxxxx.bmp'</span>, 0)</span><br><span class="line">a, b = org.shape</span><br><span class="line">x = int(a/8)</span><br><span class="line">y = int(b/8)</span><br><span class="line">fingernum = flag.shape[0] * flag.shape[1]</span><br><span class="line">r = math.ceil(fingernum/(x*y))</span><br><span class="line">org = np.float32(org)</span><br><span class="line"></span><br><span class="line">org1 = org</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(x):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(y):</span><br><span class="line">        data_dct = cv2.dct(org[8*i:8*i+8, 8*j:8*j+8])</span><br><span class="line">        <span class="keyword">for</span> t <span class="keyword">in</span> range(r):</span><br><span class="line">            rx, ry = 4, 4</span><br><span class="line">            r1 = data_dct[rx, ry]</span><br><span class="line">            r2 = data_dct[7-rx, 7-ry]</span><br><span class="line">            detat=abs(r1-r2)</span><br><span class="line">            tmp = <span class="built_in">float</span>(detat + 100)</span><br><span class="line">            <span class="keyword">if</span> flag[i][j] == 0:</span><br><span class="line">                <span class="keyword">if</span> r1 &lt;= r2:</span><br><span class="line">                    data_dct[rx, ry] += tmp</span><br><span class="line">            <span class="keyword">if</span> flag[i][j] == 255:</span><br><span class="line">                <span class="keyword">if</span> r1 &gt;= r2:</span><br><span class="line">                    data_dct[7-rx, 7-ry] += tmp</span><br><span class="line">        org1[8*i:8*i+8, 8*j:8*j+8] = cv2.idct(data_dct)</span><br><span class="line">cv2.imwrite(<span class="string">"xxxxxx.bmp"</span>, org1)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
 
-<p>种子文件格式：<br>BT种子文件整个是一个 Bencoding 编码字典格式，比较重要的 key 有：</p>
-<p>announce → tracker 服务器的地址<br>announce-list → 可选的 tracker 服务器地址<br>creation date → 文件创建时间<br>created by → 文件创建者<br>info → BT 种子文件的文件信息<br>而 info 的 value 会根据种子包含的是单文件还是多文件有所区别，以下是公共部分：</p>
-<p>piece length → 每一数据块的长度<br>pieces → 所有数据块的 SHA1 校验值<br>如果种子包含的是单文件，则还有以下 key</p>
-<p>name → 文件名称<br>length → 文件的长度<br>如果包含的是多文件，则是以下 key</p>
-<p>name → 文件夹名称<br>files → 文件列表，每个文件列表下面是包括每一个单文件的信息，文件信息是个字典<br>而 info 中的内容是种子文件中的重中之重，在 DHT 网络中保留的内容就是 info 字段的内容。</p>
-<p>而磁力链接中的 infohash 便是根据 info 字段的内容计算的，info 字段的 pieces 字段为每个数据块的校验值，作用便是验证下载的文件是否正确。</p>
-<p>要注意的是 info字段的下载也是分块的下载完成后使用 infohash 进行校验。</p>
-<p>所以，我们可以知道，磁力链接下载文件分成两个步骤：</p>
-<p>根据 infohash 下载种子文件的 info 字段，注意到种子文件并不是必须的。<br>再根据 info 下载源文件，将每一个数据块进行校验，不一致则重新下载。<br>需要注意的是，一般的种子文件会包含 announce，也就是 tracker 服务器的地址，如果没有 tracker 服务器，文件中可能会包含 nodes，nodes 是存有种子信息的 peer 节点，这样的种子文件就是 trackerless torrent。如果有 nodes 客户端直接从 nodes 获取种子信息，而从 DHT 网络中下载下来的种子文件既没有 annouce 也没有 nodes，客户端只能通过 info 字段计算出 hashinfo，再从 bootstrap node 节点开始在 DHT 网络中寻找种子信息。</p>
-<h3 id="流量分析原题"><a href="#流量分析原题" class="headerlink" title="流量分析原题"></a>流量分析原题</h3><p>BT流量一般会出现几个包，一个是uTP，这个是传输数据的，一个是DHT，是一个网络包用来发各种请求的，请求包括ping、find_node，get_peers等等。get_peers的包里，会有一个数据叫info_hash的，它对应的值就是要找的种子btih值，也就是magnet:?xt=urn:btih:后面的那一堆东西，用迅雷，直接复制那一段值，会自动获取种子，找到ios后缀种子即可！<br>过滤代码如下：</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bt-dht.bencoded.string == <span class="string">"get_peers"</span> and ip.src == 192.168.73.132 and bt-dht</span><br></pre></td></tr></tbody></table></figure>
-<p>找到find_node对应的值后，进入迅雷软件寻找种子文件，经过尝试找到以.ios为后缀的名字为flag{filename}</p>
-<h3 id="出自"><a href="#出自" class="headerlink" title="出自"></a>出自</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ https://hasegawaazusa.github.io/</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="解密"><a href="#解密" class="headerlink" title="解密"></a>解密</h3><p>简单的dct，可以知道8格一块然后修改dct的3和4处数据，</p>
+<p>flag以两边大小来判断，据此写exp即可得到flag，flag图像黑白相间，</p>
+<p>查看间隔大小猜测是asc码，解密即可得到最终flag</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">$ import cv2,math</span><br><span class="line">import numpy as np</span><br><span class="line">from Crypto.Util import number</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">org = cv2.imread(<span class="string">'xxxxxx.bmp'</span>, 0)</span><br><span class="line">a, b = org.shape</span><br><span class="line">x = int(a/8)</span><br><span class="line">y = int(b/8)</span><br><span class="line">org = np.float32(org)</span><br><span class="line"></span><br><span class="line">org1 = org</span><br><span class="line"></span><br><span class="line">res = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(x):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(y):</span><br><span class="line">        data_dct = cv2.dct(org[8*i:8*i+8, 8*j:8*j+8])</span><br><span class="line">        rx, ry = 4, 4</span><br><span class="line">        r1 = data_dct[rx, ry]</span><br><span class="line">        r2 = data_dct[7-rx, 7-ry]</span><br><span class="line">        <span class="keyword">if</span> r1 &gt; r2:</span><br><span class="line">            res.append(0)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            res.append(1)</span><br><span class="line"><span class="comment"># print(len(res))</span></span><br><span class="line"><span class="comment"># res2 = np.array(res)</span></span><br><span class="line"><span class="comment"># res2 = res2.reshape(64,64)</span></span><br><span class="line">res2 = <span class="string">''</span></span><br><span class="line">flag = 0</span><br><span class="line">count = 0</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(res)-1):</span><br><span class="line">    <span class="keyword">if</span> res[i+1] == flag:</span><br><span class="line">        count += 1</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        count+=1</span><br><span class="line">        <span class="comment"># print(flag,count)</span></span><br><span class="line">        <span class="built_in">print</span>(chr(count),end=<span class="string">''</span>)</span><br><span class="line">        res2 += str(flag)*(count//40)</span><br><span class="line">        flag = res[i+1]</span><br><span class="line">        count = 0</span><br><span class="line"><span class="comment"># print(number.long_to_bytes(int(res2,2)))</span></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+
+<h3 id="得到flag-txt"><a href="#得到flag-txt" class="headerlink" title="得到flag.txt"></a>得到flag.txt</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">e25bd92141be945cfcdd1c65bb1b9375</span><br></pre></td></tr></tbody></table></figure>
+
+
+<h2 id="书鱼的秘密"><a href="#书鱼的秘密" class="headerlink" title="书鱼的秘密"></a>书鱼的秘密</h2><p>有个wav，010查看发现data有些不对，根据hint233，</p>
+<p>搜了下发现存在间隔，中间有许多的00，稍微观察后得到间隔是10，</p>
+<p>于是写脚本10位提取一下，之后发现其中的233也比较规律，</p>
+<p>异或后得到一个倒叙的png，再倒过来即可得到一个png：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">with open(<span class="string">'1.wav'</span>,<span class="string">'rb'</span>) as fp:</span><br><span class="line">    f = bytearray(fp.read()[158:])</span><br><span class="line"></span><br><span class="line">data = bytearray()</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(f)//10):</span><br><span class="line">    data += (f[i*10]^233).to_bytes(1,byteorder=<span class="string">"little"</span>)</span><br><span class="line"></span><br><span class="line">f = open(<span class="string">'res'</span>,<span class="string">'wb'</span>)</span><br><span class="line"><span class="comment"># print(data[::-1])</span></span><br><span class="line">f.write(data[::-1])</span><br><span class="line">f.close()</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<p>在蓝通道存在lsb，提取得到压缩包解压得到个</p>
+<p>书鱼的回忆.md其中重要的是</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">226232  1  </span><br><span class="line">23442647826 1   </span><br><span class="line">528842  3</span><br><span class="line">5893626874  3</span><br><span class="line">46342   2</span><br><span class="line">6443742 1</span><br><span class="line">473323  2</span><br><span class="line">24462   1-2</span><br><span class="line">6626    2</span><br><span class="line">35426884    3</span><br><span class="line">3782867425 484632   2</span><br><span class="line">2654842    3  </span><br><span class="line">2376832    0-3</span><br><span class="line">52726      1 </span><br></pre></td></tr></tbody></table></figure>
+<p>提取得到1912120866341-4408 (注意最后有个空格)，</p>
+<p>md5后得到答案b80ddea112953c5f56fad46758d21ba8</p>
+<p>不加空格就不对（，出题人的锅 ）</p>
+<p>flag：b80ddea112953c5f56fad46758d21ba8</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://www.snowywar.top/?p=2994 雪殇博客</span><br></pre></td></tr></tbody></table></figure>
+
 
 
                 
@@ -549,7 +543,7 @@ color="122 103 238" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://bdth1020.github.io/2022/03/21/hongliufenxi/">http://bdth1020.github.io/2022/03/21/hongliufenxi/</a>
+                    <a href="http://bdth1020.github.io/2022/03/29/dasctf/">http://bdth1020.github.io/2022/03/29/dasctf/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -755,7 +749,7 @@ color="122 103 238" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
         repo: '',
         owner: '',
         admin: null,
-        id: '2022-03-21T15-39-28',
+        id: '2022-03-29T15-33-59',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -779,7 +773,7 @@ color="122 103 238" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
 <script src="/libs/gitment/gitment.js"></script>
 <script>
 var gitment = new Gitment({
-    id: 'Mon Mar 21 2022 15:39:28 GMT+0800',
+    id: 'Tue Mar 29 2022 15:33:59 GMT+0800',
     owner: '',
     repo: '',
     oauth: {
@@ -804,9 +798,9 @@ gitment.render('gitment-content');
 
 <script type="text/javascript">
     disqus_config = function () {
-        this.page.url = 'http://bdth1020.github.io/2022/03/21/hongliufenxi/';
-        this.page.identifier = '/2022/03/21/hongliufenxi/';
-        this.page.title = 'P2P通信协议';
+        this.page.url = 'http://bdth1020.github.io/2022/03/29/dasctf/';
+        this.page.identifier = '/2022/03/29/dasctf/';
+        this.page.title = '2022.3.29';
     };
     let disqus_shortname = '';
 
@@ -1165,54 +1159,18 @@ gitment.render('gitment-content');
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2022/03/22/dingshigouji/">
+                <a href="/2022/03/29/dasctf/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="测信道攻击">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="2022.3.29">
                         
-                        <span class="card-title">测信道攻击</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-03-22
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            GXH
-                            
-                        </span>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
-            </div>
-            <div class="card">
-                <a href="/2022/03/21/hongliufenxi/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="P2P通信协议">
-                        
-                        <span class="card-title">P2P通信协议</span>
+                        <span class="card-title">2022.3.29</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1223,7 +1181,7 @@ gitment.render('gitment-content');
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-21
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-29
                             </span>
                         <span class="publish-author">
                             
@@ -1234,6 +1192,43 @@ gitment.render('gitment-content');
                     </div>
                 </div>
 
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2022/03/22/pico-guixingdong/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="ssh的链接">
+                        
+                        <span class="card-title">ssh的链接</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-22
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            GXH
+                            
+                        </span>
+                    </div>
+                </div>
                 
             </div>
         </div>
