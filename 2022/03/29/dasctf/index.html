@@ -15,7 +15,7 @@ color="122 103 238" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="2022.3.29, 搁浅">
+    <meta name="keywords" content="DASCTF SU三月赛, 搁浅">
     <meta name="description" content="CTF">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -38,7 +38,7 @@ color="122 103 238" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
 </script>
 
 
-    <title>2022.3.29 | 搁浅</title>
+    <title>DASCTF SU三月赛 | 搁浅</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -51,9 +51,9 @@ color="122 103 238" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.1">
+<meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/atom.xml" title="搁浅" type="application/atom+xml">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="搁浅" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
@@ -313,12 +313,12 @@ color="122 103 238" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">2022.3.29</h1>
+                    <h1 class="description center-align post-title">DASCTF SU三月赛</h1>
                 </div>
             </div>
         </div>
@@ -460,7 +460,7 @@ color="122 103 238" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    608
+                    603
                 </div>
                 
 
@@ -488,7 +488,6 @@ color="122 103 238" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p>Welcome to 蒲公英的约定</p>
-<p>DASCTF SU三月赛</p>
 <h2 id="xxxxxx"><a href="#xxxxxx" class="headerlink" title="xxxxxx"></a>xxxxxx</h2><h2 id="加密dct隐写，解混淆后"><a href="#加密dct隐写，解混淆后" class="headerlink" title="加密dct隐写，解混淆后"></a>加密dct隐写，解混淆后</h2><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">$ import cv2,math</span><br><span class="line">import numpy as np</span><br><span class="line"></span><br><span class="line">org = cv2.imread(<span class="string">'xxxxxxx.bmp'</span>, 0)</span><br><span class="line">flag = cv2.imread(<span class="string">'xxxxxxxx.bmp'</span>, 0)</span><br><span class="line">a, b = org.shape</span><br><span class="line">x = int(a/8)</span><br><span class="line">y = int(b/8)</span><br><span class="line">fingernum = flag.shape[0] * flag.shape[1]</span><br><span class="line">r = math.ceil(fingernum/(x*y))</span><br><span class="line">org = np.float32(org)</span><br><span class="line"></span><br><span class="line">org1 = org</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(x):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(y):</span><br><span class="line">        data_dct = cv2.dct(org[8*i:8*i+8, 8*j:8*j+8])</span><br><span class="line">        <span class="keyword">for</span> t <span class="keyword">in</span> range(r):</span><br><span class="line">            rx, ry = 4, 4</span><br><span class="line">            r1 = data_dct[rx, ry]</span><br><span class="line">            r2 = data_dct[7-rx, 7-ry]</span><br><span class="line">            detat=abs(r1-r2)</span><br><span class="line">            tmp = <span class="built_in">float</span>(detat + 100)</span><br><span class="line">            <span class="keyword">if</span> flag[i][j] == 0:</span><br><span class="line">                <span class="keyword">if</span> r1 &lt;= r2:</span><br><span class="line">                    data_dct[rx, ry] += tmp</span><br><span class="line">            <span class="keyword">if</span> flag[i][j] == 255:</span><br><span class="line">                <span class="keyword">if</span> r1 &gt;= r2:</span><br><span class="line">                    data_dct[7-rx, 7-ry] += tmp</span><br><span class="line">        org1[8*i:8*i+8, 8*j:8*j+8] = cv2.idct(data_dct)</span><br><span class="line">cv2.imwrite(<span class="string">"xxxxxx.bmp"</span>, org1)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
 
 
@@ -800,7 +799,7 @@ gitment.render('gitment-content');
     disqus_config = function () {
         this.page.url = 'http://bdth1020.github.io/2022/03/29/dasctf/';
         this.page.identifier = '/2022/03/29/dasctf/';
-        this.page.title = '2022.3.29';
+        this.page.title = 'DASCTF SU三月赛';
     };
     let disqus_shortname = '';
 
@@ -1168,9 +1167,9 @@ gitment.render('gitment-content');
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="2022.3.29">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="DASCTF SU三月赛">
                         
-                        <span class="card-title">2022.3.29</span>
+                        <span class="card-title">DASCTF SU三月赛</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
